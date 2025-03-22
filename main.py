@@ -84,7 +84,7 @@ model.compile(loss='categorical_crossentropy',
               metrics=['accuracy'])
 
 history = model.fit(X_train, y_train, batch_size=32,
-                    epochs=10, validation_data=(X_test, y_test))
+                    epochs=100, validation_data=(X_test, y_test))
 
 # 画像を受け取り、名称を判別する関数
 
@@ -111,7 +111,7 @@ if not os.path.exists(result_dir):
     os.mkdir(result_dir)
 
 # 重みを保存
-model.save(os.path.join(result_dir, 'model.h5'))
+model.save(os.path.join(result_dir, 'model_100epoch.h5'))
 
 # pred関数に写真を渡して分類を予測
 path_pred = os.listdir("single_prediction/")
